@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Code Challenge</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+            transition: background 0.5s;
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .message {
+            margin-top: 10px;
+            font-size: 18px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="codeInput" placeholder="Digite o código">
+        <button onclick="checkCode()">Enviar</button>
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+        const codes = ["HAPPY", "BIRTHDAY", "MY", "DEAR"];
+        let currentIndex = 0;
+
+        function checkCode() {
+            const input = document.getElementById('codeInput').value;
+            const message = document.getElementById('message');
+
+            if (input === codes[currentIndex]) {
+                currentIndex++;
+                if (currentIndex < codes.length) {
+                    document.body.style.backgroundImage = `url('https://i.pinimg.com/736x/5a/83/39/5a83397b9826b1ffd949faabc5d5c27d.jpg')`;
+                    message.textContent = '';
+                } else {
+                    document.body.style.backgroundImage = `url('https://i.pinimg.com/736x/66/50/2a/66502a0d4198dd2f22784e3a72a80672.jpg')`;
+                    message.style.color = 'green';
+                    message.textContent = 'PARABEENNNS YIPPIE!!!!! ( sim aparti daquin não tem mias nada pq demorei a porra de 2 meses para faze isso por que não quis usar chatgpt )';
+                }
+            } else {
+                message.textContent = 'Texto incorreto';
+            }
+
+            document.getElementById('codeInput').value = '';
+        }
+    </script>
+</body>
+</html>
